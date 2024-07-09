@@ -1,0 +1,7 @@
+# Python general ignore files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# .env file
+.env
