@@ -39,9 +39,11 @@ class Preprocess:
         # Convert text to lowercase
         df["tweet_text"] = df["tweet_text"].str.lower()
         
-
+        #convert replies, retweets, and likes to float
+        df['likes'] = df['likes'].str.replace(',', '').str.replace('M', 'e6').str.replace('K', 'e3').astype(float)
+        df['retweets'] = df['retweets'].str.replace(',', '').str.replace('M', 'e6').str.replace('K', 'e3').astype(float)
+        df['replies'] = df['replies'].str.replace(',', '').str.replace('M', 'e6').str.replace('K', 'e3').astype(float)
         
-
         # Remove non-alphanumeric characters
         df["tweet_text"] = df["tweet_text"].str.replace("[^a-zA-Z0-9]", " ", regex=True)
         

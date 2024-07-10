@@ -5,7 +5,9 @@ from preprocess import Preprocess
 from analyze import Analyze
 from sentiment_analysis import TwitterSentimentAnalsis
 import pandas as pd
+import time
 def main():
+    start_time = time.time()
     # Initialize the bot and login
     bot = Bot()
     bot.login()
@@ -58,7 +60,8 @@ def main():
 
 
     print("Analysis complete")
-
+    end_time = time.time()
+    print(f"Time taken (including input duration): {end_time - start_time} seconds")
 
 if __name__ == "__main__":
     main()
